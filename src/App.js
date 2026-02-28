@@ -341,7 +341,7 @@ function CodePane({ language, value, onChange, theme }) {
       const lineStart = val.lastIndexOf("\n", start - 1) + 1;
       const lineContent = val.substring(lineStart, start);
       const indent = lineContent.match(/^(\s*)/)[1];
-      const extra = /[{(\[]$/.test(lineContent.trim()) ? "  " : "";
+      const extra = /[{([']$/.test(lineContent.trim()) ? "  " : "";
       const insert = "\n" + indent + extra;
       const newVal = val.substring(0, start) + insert + val.substring(end);
       onChange(newVal);
@@ -435,7 +435,7 @@ try {
     '<div style="position:fixed;bottom:0;left:0;right:0;background:#f85149;color:#fff;padding:8px 14px;font:13px monospace;z-index:9999">❌ JS Error: '+e.message+'</div>'
   );
 }
-<\/script>
+${'<'}/script>
 </body>
 </html>`;
   }, [html, css, js]);
@@ -447,7 +447,7 @@ try {
     return () => clearTimeout(timerRef.current);
   }, [html, css, js, autoRun, buildDoc]);
 
-  useEffect(() => { setSrcDoc(buildDoc()); }, []); // initial
+  useEffect(() => { setSrcDoc(buildDoc()); }, [buildDoc]); // initial
 
   const notify = (msg) => { setNotif(msg); setTimeout(() => setNotif(""), 2200); };
 
@@ -474,9 +474,6 @@ try {
     notify("📥 Downloaded index.html!");
   };
 
-  const formatCode = () => {
-    notify("✨ Code formatted!");
-  };
 
   // Load from URL on mount
   useEffect(() => {
