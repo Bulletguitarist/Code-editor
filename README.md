@@ -46,7 +46,7 @@ npm install
 npm start
 ```
 
-App opens at **code-editor-b2dh.vercel.app** 🎉
+App opens at  code-editor-b2dh.vercel.app 
 
 ---
 
