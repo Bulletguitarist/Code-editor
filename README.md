@@ -1,70 +1,151 @@
-# Getting Started with Create React App
+# ⚡ CodePen.live — Online Code Editor
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> A browser-based IDE for HTML, CSS, and JavaScript with instant live preview — built with React.js.
 
-## Available Scripts
+![React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![Vercel](https://img.shields.io/badge/Deployed-Vercel-000000?style=flat&logo=vercel&logoColor=white)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- ⚡ **Live Preview** — See changes instantly in an iframe sandbox (auto-run with 600ms debounce)
+- 🎨 **3 Language Tabs** — Separate editors for HTML, CSS, and JavaScript
+- 📋 **5 Built-in Templates** — Blank, Portfolio, Live Clock, Todo App, Calculator
+- 🖥️ **3 Layout Views** — Split (editor + preview), Editor only, Preview only
+- 🔢 **Line Numbers** — Real-time line count with syntax-aware editor
+- ⌨️ **Smart Editing** — Tab indentation, auto-indent on Enter, bracket detection
+- 🔗 **Share via URL** — Entire code encoded into a shareable link (Base64)
+- 📥 **Download HTML** — Export complete `index.html` file instantly
+- 🐛 **JS Error Display** — Runtime errors shown as red banner inside preview
+- 🔤 **Font Size Control** — Increase/decrease editor font size on the fly
+- 🔄 **Auto-run Toggle** — Switch between auto and manual run modes
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🚀 Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
+- [Node.js](https://nodejs.org/) v16 or higher
+- npm (comes with Node.js)
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# 1. Clone the repo
+git clone https://github.com/Bulletguitarist/code-editor.git
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# 2. Go into the project folder
+cd code-editor
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# 3. Install dependencies
+npm install
 
-### `npm run eject`
+# 4. Start the development server
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+App opens at **code-editor-b2dh.vercel.app** 🎉
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🏗️ Project Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+code-editor/
+├── public/
+│   └── index.html
+├── src/
+│   └── App.js          ← Entire app (editor + preview + templates)
+├── package.json
+└── README.md
+```
 
-## Learn More
+### Components
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Component | Description |
+|-----------|-------------|
+| `App` | Root — layout, state, template loading, share/download logic |
+| `CodePane` | Textarea-based code editor with line numbers and smart key handling |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 🛠️ Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| Technology | Purpose |
+|------------|---------|
+| **React.js** (CRA) | UI framework and state management |
+| **iframe** (sandbox) | Isolated live preview renderer |
+| **Base64 + URL params** | Code sharing via URL encoding |
+| **JetBrains Mono** | Monospace font for the editor |
+| **Vercel** | CI/CD deployment |
 
-### Analyzing the Bundle Size
+> **No Monaco Editor dependency** — uses a custom lightweight textarea editor for zero install overhead and full browser compatibility.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 📋 Built-in Templates
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+| Template | Description |
+|----------|-------------|
+| 📄 **Blank** | Clean starter with basic HTML structure |
+| 💼 **Portfolio** | Dark-themed developer portfolio with project cards |
+| 🕐 **Live Clock** | Animated digital clock with CSS glow effects |
+| ✅ **Todo App** | Functional task manager with add/complete/delete |
+| 🔢 **Calculator** | iOS-style calculator with full arithmetic logic |
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🔗 Code Sharing
 
-### Deployment
+Click the **Share** button to generate a shareable URL:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
+https://yourapp.vercel.app/?code=eyJodG1sIjoiPGgxPkhlbGxvPC9oMT4i...
+```
 
-### `npm run build` fails to minify
+- The entire HTML + CSS + JS is Base64 encoded into the URL
+- Anyone opening the link gets the exact same code loaded automatically
+- No backend or database required!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## Keyboard Shortcuts
+
+| Key | Action |
+|-----|--------|
+| `Tab` | Insert 2-space indentation |
+| `Enter` | Auto-indent to match current line |
+| `Enter` after `{`, `(`, `[` | Extra indent level |
+| `+` / `-` buttons | Increase / decrease font size |
+
+---
+
+## 🚢 Deployment
+
+Auto-deployed on **Vercel** via GitHub push:
+
+```bash
+git add .
+git commit -m "your message"
+git push
+# Vercel auto-redeploys
+```
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+
+---
+
+## 🔮 Future Plans
+
+- [ ] Monaco Editor integration for full syntax highlighting
+- [ ] More language support (TypeScript, SCSS, JSX)
+- [ ] Cloud snippet saving (Firebase / Supabase)
+- [ ] Multiple files / tab support
+- [ ] Console output panel (capture console.log)
+- [ ] Vim / Emacs keybinding modes
+- [ ] Collaborative editing (WebSockets)
+- [ ] Custom themes (Dracula, Solarized, Nord)
+
+
